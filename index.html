@@ -10,26 +10,33 @@
 
 <body>
     <div class="container">
-        <form action="">
+      <dialog>
+        
+        <form action="" id="form" >
             <p>
-                <label for=""></label>
-                <input type="text" />
+                <label for="title">Title:</label>
+                <input type="text" id="title"/>
             </p>
             <p>
-                <label for=""></label>
-                <input type="text" />
+                <label for="author">Author:</label>
+                <input type="text" id="author"/>
             </p>
             <p>
-                <label for=""></label>
-                <input type="text" />
+                <label for="pages">Pages:</label>
+                <input type="number" max="1000" min="1" id="pages"/>
             </p>
             <p>
-                <label for=""></label>
-                <input type="text" />
+                <label for="status">Status</label>
+                <input type="text" name="" id="status">
             </p>
-            <button>Add book</button>
+            <button id="submit">Add book</button>
+            <button id="close" autofocus>Close</button>
         </form>
+        
+      </dialog>
+      <button id="dialogButton">Show Form</button>
     </div>
+    <div id="library"></div>
     <script src="/script.js"></script>
 </body>
 
