@@ -19,8 +19,8 @@ function addBookToLibrary(title, author, pages, status){
 
 
 //add event listener for button to submit data
-document.getElementById('submit').addEventListener('click', function (event){
-    
+document.getElementById('form').addEventListener('submit', function (event){
+    event.preventDefault();
 
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
@@ -38,11 +38,15 @@ document.getElementById('submit').addEventListener('click', function (event){
 const dialog = document.querySelector("dialog");
 document.getElementById('dialogButton').addEventListener('click', ()=>{
     dialog.showModal();
-   
-    displayBooks();
+
+
+
 });
 
-
+// to close window
+document.getElementById('close').addEventListener('click', ()=>{
+    dialog.close();
+})
 
 // function that will loop through the array and display the data on the page
 
@@ -54,6 +58,7 @@ function displayBooks(){
 
    myLibrary.forEach((book, index)=>{
     const cards =document.createElement('div');
+    cards.classList.add('cards');
 
     const titleB = document.createElement('h3');
     titleB.textContent = `Title: ${book.title}`;
@@ -70,12 +75,13 @@ function displayBooks(){
     cards.appendChild(pagesB);
 
 
-    const statusB = document.createElement('h4');
+    const statusB = document.createElement('h5');
     statusB.textContent  = `Status: ${book.status}`;
     cards.appendChild(statusB);
 
     const removeCard = document.createElement('button');
     removeCard.textContent = "remove Card";
+    removeCard.classList.add('remove');
     removeCard.addEventListener('click', function(){
         deleteCard(index);
     });
